@@ -26,4 +26,10 @@ public class GlobalExceptionHandler {
         ErrorResponse errorResponse = new ErrorResponse("Insufficient funds for transfer", HttpStatus.INTERNAL_SERVER_ERROR.value());
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @ExceptionHandler(InvalidDateRange.class)
+    public ResponseEntity<ErrorResponse> handleInvalidDateRange(Exception exception) {
+        ErrorResponse errorResponse = new ErrorResponse("The Date Range entered was invalid", HttpStatus.INTERNAL_SERVER_ERROR.value());
+        return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }

@@ -22,4 +22,10 @@ public class User {
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "wallet_id", nullable = false)
     private Wallet wallet;
+
+    public User(int i, String user, String pass) {
+        this.id = (long) i;
+        this.username = user;
+        this.password = pass;
+    }
 }

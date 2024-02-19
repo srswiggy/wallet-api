@@ -28,7 +28,7 @@ public class SecurityConfig {
         http.csrf().disable()
                 .authorizeHttpRequests((authorize) -> {
                     authorize
-                            .requestMatchers(HttpMethod.POST,"/register").permitAll()
+                            .requestMatchers(HttpMethod.POST,"/user/register").permitAll()
                             .requestMatchers("/h2-console/**").permitAll()
                             .anyRequest().authenticated();
                 })
